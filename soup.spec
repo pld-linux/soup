@@ -18,7 +18,7 @@ BuildRequires:	glib-devel
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
 BuildRequires:	libxml-devel
-BuildRequires:	openssl-devel >= 0.9.7c
+BuildRequires:	openssl-devel >= 0.9.7d
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
