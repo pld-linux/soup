@@ -1,27 +1,27 @@
-diff -Nur soup-0.7.4.orig/src/libwsdl/Makefile.am soup-0.7.4.chng/src/libwsdl/Makefile.am
---- soup-0.7.4.orig/src/libwsdl/Makefile.am	Fri Apr  5 20:46:30 2002
-+++ soup-0.7.4.chng/src/libwsdl/Makefile.am	Wed Nov 13 21:06:28 2002
-@@ -49,12 +49,6 @@
- noinst_LIBRARIES = libwsdl-build.a
- 
- libwsdl_build_a_SOURCES =	\
+diff -urN soup-0.7.11.orig/src/libwsdl/Makefile.am soup-0.7.11/src/libwsdl/Makefile.am
+--- soup-0.7.11.orig/src/libwsdl/Makefile.am	2002-12-19 22:11:36.000000000 +0000
++++ soup-0.7.11/src/libwsdl/Makefile.am	2004-06-28 13:32:58.000000000 +0000
+@@ -34,12 +34,6 @@
+ libwsdl_la_SOURCES =		\
+ 	wsdl.h			\
+ 	wsdl-param.h		\
 -	wsdl-typecodes.c	\
 -	wsdl-typecodes.h	\
 -	wsdl-schema.c		\
 -	wsdl-schema.h		\
 -	wsdl-schema-glib.c	\
 -	wsdl-schema-glib.h	\
- 	wsdl-typecodes-c.c	\
- 	wsdl-typecodes-c.h
- 
-diff -Nur soup-0.7.4.orig/src/soup-wsdl/Makefile.am soup-0.7.4.chng/src/soup-wsdl/Makefile.am
---- soup-0.7.4.orig/src/soup-wsdl/Makefile.am	Wed Apr 10 16:33:19 2002
-+++ soup-0.7.4.chng/src/soup-wsdl/Makefile.am	Wed Nov 13 21:04:32 2002
+ 	wsdl-soap-parse.c	\
+ 	wsdl-soap-parse.h	\
+ 	wsdl-soap-marshal.c	\
+diff -urN soup-0.7.11.orig/src/soup-wsdl/Makefile.am soup-0.7.11/src/soup-wsdl/Makefile.am
+--- soup-0.7.11.orig/src/soup-wsdl/Makefile.am	2002-12-19 22:11:39.000000000 +0000
++++ soup-0.7.11/src/soup-wsdl/Makefile.am	2004-06-28 13:37:17.000000000 +0000
 @@ -17,6 +17,7 @@
  	$(POPT_LIBS)					\
  	$(XML_LIBS)					\
  	$(top_builddir)/src/libsoup/libsoup.la		\
 +	$(top_builddir)/src/libwsdl/libwsdl.la		\
- 	$(top_builddir)/src/libwsdl/libwsdl-build.a
+ 	$(top_builddir)/src/libwsdl/libwsdl-build.la
  
  soup_wsdl_SOURCES = 		\
