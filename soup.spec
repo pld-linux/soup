@@ -12,15 +12,15 @@ Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{
 # Source0-md5:	848ccf5e7616cd897593bab72bbc9b5a
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
-BuildRequires:	glib-devel
-BuildRequires:	openssl-devel >= 0.9.7
-BuildRequires:	popt-devel
-BuildRequires:	libxml-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	glib-devel
+BuildRequires:	gtk-doc
 BuildRequires:	libtool
+BuildRequires:	libxml-devel
+BuildRequires:	openssl-devel >= 0.9.7
+BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 It provides an queued asynchronous callback-based mechanism for
@@ -39,13 +39,14 @@ Summary:	Include files etc to develop SOAP applications
 Summary(pl):	Pliki nag³ówkowe, dokumentacja dla SOAP
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gtk-doc-common
 
 %description devel
 Header files, etc you can use to develop SOAP applications.
 
 %description devel -l pl
-Pliki nag³ówkowe itp. Jednym s³owem wszystko czego potrzebujesz aby
-samemu tworzyæ sobie aplikacje korzystaj±ce z SOAP.
+Pliki nag³ówkowe itp., jednym s³owem wszystko czego potrzeba, aby
+samemu tworzyæ aplikacje korzystaj±ce z SOAP.
 
 %package static
 Summary:	SOAP static libraries
@@ -60,7 +61,7 @@ SOAP static libraries.
 Biblioteki statyczne SOAP.
 
 %prep
-%setup  -q -n %{name}-%{version}
+%setup -q
 %patch -p1
 
 %build
@@ -70,9 +71,8 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 
-CPPFLAGS="%{rpmcflags} -I%{_prefix}"; export CPPFLAGS
 %configure \
-	--with-html-dir=/usr/share/doc/%{name}-devel-%{version} \
+	--with-html-dir=%{_gtkdocdir} \
 	--enable-ssl
 %{__make}
 
@@ -84,21 +84,19 @@ rm -rf $RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#%find_lang %{name} --with-gnome --all-name
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-#%files -f %{name}.lang
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING COPYING.LIB ChangeLog README TODO
-%attr(755,root,root) %{_bindir}/*
+%doc AUTHORS ChangeLog README TODO
+%attr(755,root,root) %{_bindir}/soup-ssl-proxy
+%attr(755,root,root) %{_bindir}/soup-httpd
+%attr(755,root,root) %{_bindir}/soup-wsdl
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_pkgconfigdir}/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -106,8 +104,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
-/usr/share/doc/%{name}-devel-%{version}
 %{_includedir}/*
+%{_gtkdocdir}/*
+%{_pkgconfigdir}/*
 %{_aclocaldir}/*.m4
 
 %files static
