@@ -12,7 +12,7 @@ Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
 BuildRequires:	glib-devel
-BuildRequires:	openssl-devel >= 0.9.6a
+BuildRequires:	openssl-devel >= 0.9.7
 BuildRequires:	popt-devel
 BuildRequires:	libxml-devel
 BuildRequires:	autoconf
