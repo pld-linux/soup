@@ -1,11 +1,15 @@
+%define		mver		0.7
+%define		subver		4
+
 Summary:	SOAP (Simple Object Access Protocol) implementation in C
 Summary(pl):	Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
-Version:	0.2
+Version:	%{mver}.%{subver}
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
 BuildRequires:	glib-devel
 BuildRequires:	openssl-devel >= 0.9.6a
@@ -16,8 +20,6 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_sysconfdir	/etc/X11/GNOME
 
 %description
 It provides an queued asynchronous callback-based mechanism for
@@ -57,7 +59,8 @@ SOAP static libraries.
 Biblioteki statyczne SOAP.
 
 %prep
-%setup  -q -n %{name}-%{version}.1
+%setup  -q -n %{name}-%{version}
+%patch -p1
 
 %build
 rm -f missing
@@ -68,6 +71,7 @@ rm -f missing
 
 CPPFLAGS="%{rpmcflags} -I%{_prefix}"; export CPPFLAGS
 %configure \
+	--with-html-dir=/usr/share/doc/%{name}-devel-%{version} \
 	--enable-ssl
 %{__make}
 
@@ -75,9 +79,11 @@ CPPFLAGS="%{rpmcflags} -I%{_prefix}"; export CPPFLAGS
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	pkgconfigdir=%{_pkgconfigdir} \
+	m4datadir=%{_aclocaldir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang %{name} --with-gnome --all-name
+#%find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,41 +91,23 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f %{name}.lang
+#%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc *.gz
-
-%dir %{_sysconfdir}
-%dir %{_sysconfdir}/sound
-%dir %{_sysconfdir}/sound/events
-%config %{_sysconfdir}/mime-magic*
-%config %{_sysconfdir}/paper.config
-%config %{_sysconfdir}/sound/events/gnome.soundlist
-%config %{_sysconfdir}/sound/events/gtk-events.soundlist
-
+%doc AUTHORS COPYING COPYING.LIB ChangeLog README TODO
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-
+%{_pkgconfigdir}/*
 
 %files devel
 %defattr(644,root,root,755)
-%doc devel-docs/{README.gtkcauldron*,*.txt.gz,*.sgml,*/{*.txt.gz,*.sgml}}
-
 %attr(755,root,root) %{_bindir}/*-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
-
+/usr/share/doc/%{name}-devel-%{version}
 %{_includedir}/*
-%{_libdir}/gnome-libs
-%{_datadir}/doc
-
-%{_mandir}/man1/gnome-config.1*
-%{_mandir}/man3/*
-
-%{_datadir}/idl/*
 %{_aclocaldir}/*.m4
-%dir %{_aclocaldir}/gnome
-%{_aclocaldir}/gnome/*.m4
 
 %files static
 %defattr(644,root,root,755)
