@@ -5,7 +5,7 @@ Summary:	SOAP (Simple Object Access Protocol) implementation in C
 Summary(pl):	Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
 Version:	%{mver}.%{subver}
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{version}.tar.bz2
@@ -14,6 +14,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	glib-devel
 BuildRequires:	openssl-devel >= 0.9.6a
 BuildRequires:	popt-devel
+BuildRequires:	libxml-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
