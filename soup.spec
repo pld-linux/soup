@@ -63,8 +63,8 @@ Biblioteki statyczne SOAP.
 rm -f missing
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 
 CPPFLAGS="%{rpmcflags} -I%{_prefix}"; export CPPFLAGS
 %configure \
