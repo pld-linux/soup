@@ -1,15 +1,15 @@
 %define		mver		0.7
-%define		subver		4
+%define		subver		11
 
 Summary:	SOAP (Simple Object Access Protocol) implementation in C
 Summary(pl):	Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
 Version:	%{mver}.%{subver}
-Release:	2
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{version}.tar.bz2
-# Source0-md5:	848ccf5e7616cd897593bab72bbc9b5a
+# Source0-md5:	61bb2fef816ce164af62f8a3a5bd782e
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
