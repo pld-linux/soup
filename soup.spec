@@ -9,6 +9,7 @@ Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{version}.tar.bz2
+# Source0-md5:	848ccf5e7616cd897593bab72bbc9b5a
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
 BuildRequires:	glib-devel
