@@ -62,7 +62,7 @@ Biblioteki statyczne SOAP.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 rm -f missing
