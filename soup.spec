@@ -8,7 +8,7 @@ Version:	%{mver}.%{subver}
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/%{name}/%{mver}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/soup/%{mver}/%{name}-%{version}.tar.bz2
 # Source0-md5:	61bb2fef816ce164af62f8a3a5bd782e
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
@@ -38,7 +38,7 @@ serwerów dla ³atwego wywo³ywania i implementowania metod SOAP.
 Summary:	Include files etc to develop SOAP applications
 Summary(pl):	Pliki nag³ówkowe, dokumentacja dla SOAP
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
 
 %description devel
@@ -52,7 +52,7 @@ samemu tworzyæ aplikacje korzystaj±ce z SOAP.
 Summary:	SOAP static libraries
 Summary(pl):	Biblioteki statyczne SOAP
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 SOAP static libraries.
