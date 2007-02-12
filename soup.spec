@@ -2,7 +2,7 @@
 %define		subver		11
 
 Summary:	SOAP (Simple Object Access Protocol) implementation in C
-Summary(pl.UTF-8):   Implementacja w C SOAP (Simple Object Access Protocol)
+Summary(pl.UTF-8):	Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
 Version:	%{mver}.%{subver}
 Release:	1
@@ -36,7 +36,7 @@ serwerów dla łatwego wywoływania i implementowania metod SOAP.
 
 %package devel
 Summary:	Include files etc to develop SOAP applications
-Summary(pl.UTF-8):   Pliki nagłówkowe, dokumentacja dla SOAP
+Summary(pl.UTF-8):	Pliki nagłówkowe, dokumentacja dla SOAP
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
@@ -50,7 +50,7 @@ samemu tworzyć aplikacje korzystające z SOAP.
 
 %package static
 Summary:	SOAP static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne SOAP
+Summary(pl.UTF-8):	Biblioteki statyczne SOAP
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
