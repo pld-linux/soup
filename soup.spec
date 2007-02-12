@@ -2,7 +2,7 @@
 %define		subver		11
 
 Summary:	SOAP (Simple Object Access Protocol) implementation in C
-Summary(pl):	Implementacja w C SOAP (Simple Object Access Protocol)
+Summary(pl.UTF-8):   Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
 Version:	%{mver}.%{subver}
 Release:	1
@@ -28,15 +28,15 @@ sending and servicing SOAP requests, and a WSDL (Web Service
 Definition Language) to C compiler which generates client stubs and
 server skeletons for easily calling and implementing SOAP methods.
 
-%description -l pl
+%description -l pl.UTF-8
 Pakiet dostarcza interfejs kolejkowalnego, asynchronicznego mechanizmu
-do wysy³ania i serwowania ¿±dañ SOAP oraz WSDL (Web Service Definition
-Language) dla kompilatora C, który generuje klienckie stub i szkielety
-serwerów dla ³atwego wywo³ywania i implementowania metod SOAP.
+do wysyÅ‚ania i serwowania Å¼Ä…daÅ„ SOAP oraz WSDL (Web Service Definition
+Language) dla kompilatora C, ktÃ³ry generuje klienckie stub i szkielety
+serwerÃ³w dla Å‚atwego wywoÅ‚ywania i implementowania metod SOAP.
 
 %package devel
 Summary:	Include files etc to develop SOAP applications
-Summary(pl):	Pliki nag³ówkowe, dokumentacja dla SOAP
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe, dokumentacja dla SOAP
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
@@ -44,20 +44,20 @@ Requires:	gtk-doc-common
 %description devel
 Header files, etc you can use to develop SOAP applications.
 
-%description devel -l pl
-Pliki nag³ówkowe itp., jednym s³owem wszystko czego potrzeba, aby
-samemu tworzyæ aplikacje korzystaj±ce z SOAP.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe itp., jednym sÅ‚owem wszystko czego potrzeba, aby
+samemu tworzyÄ‡ aplikacje korzystajÄ…ce z SOAP.
 
 %package static
 Summary:	SOAP static libraries
-Summary(pl):	Biblioteki statyczne SOAP
+Summary(pl.UTF-8):   Biblioteki statyczne SOAP
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 SOAP static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne SOAP.
 
 %prep
