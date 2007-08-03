@@ -1,14 +1,11 @@
-%define		mver		0.7
-%define		subver		11
-
 Summary:	SOAP (Simple Object Access Protocol) implementation in C
 Summary(pl.UTF-8):	Implementacja w C SOAP (Simple Object Access Protocol)
 Name:		soup
-Version:	%{mver}.%{subver}
+Version:	0.7.11
 Release:	1
-License:	LGPL
-Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/mirror/gnome.org/sources/soup/%{mver}/%{name}-%{version}.tar.bz2
+License:	LGPL v2+ (libsoup), GPL v2+ (utilities)
+Group:		Libraries
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/soup/0.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	61bb2fef816ce164af62f8a3a5bd782e
 Patch0:		%{name}-make.patch
 URL:		http://www.gnome.org/
@@ -37,7 +34,7 @@ serwerów dla łatwego wywoływania i implementowania metod SOAP.
 %package devel
 Summary:	Include files etc to develop SOAP applications
 Summary(pl.UTF-8):	Pliki nagłówkowe, dokumentacja dla SOAP
-Group:		X11/Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gtk-doc-common
 
@@ -51,7 +48,7 @@ samemu tworzyć aplikacje korzystające z SOAP.
 %package static
 Summary:	SOAP static libraries
 Summary(pl.UTF-8):	Biblioteki statyczne SOAP
-Group:		X11/Development/Libraries
+Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
@@ -65,7 +62,6 @@ Biblioteki statyczne SOAP.
 %patch0 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
